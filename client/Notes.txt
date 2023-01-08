@@ -1,0 +1,23 @@
+Webpack is a static module bundler for JavaScript applications — it takes all the code from your application 
+and makes it usable in a web browser.
+
+To make sure that the code is readable by all browsers, we need a tool like babel to 
+transpile ( translate a source code from a language to another at the same level of abstraction) 
+our code to normal readable code for browsers. Taking new react code and making it easier for old browsers to read
+
+Webpack separates the code based on how it is used in your app, and with this modular 
+breakdown of responsibilities, it becomes much easier to manage, debug, verify, and test your code.
+
+At its core webpack is a bundler whose main function is to go through your package and creates what 
+it calls a dependency graph which consists of various modules which your webapp would require to function
+as expected. 
+
+Modules are reusable chunks of code built from your app’s JavaScript, node_modules, 
+images, and the CSS styles files which are packaged to be easily used in your website.
+
+Then, depending on this graph, it creates a new package which consists of the very bare minimum number of 
+files required, often just a single bundle.js file which can be plugged in to a html file easily and used 
+for the application.
+
+Its just like a normal project. App.js is ground zero and through it other js files are dependednt on it
+and possibly .css files
