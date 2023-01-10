@@ -21,3 +21,25 @@ for the application.
 
 Its just like a normal project. App.js is ground zero and through it other js files are dependednt on it
 and possibly .css files
+
+--CORS CONFIGURATION--
+
+1st setup
+
+var corsOptions = {
+  origin: 'http://localhost:8080',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.post("/todos",  cors(corsOptions),  async (req, res) => {
+    try {
+      const { description } = req.body;
+      const newTodo = await pool.query( "INSERT INTO todo (description) VALUES($1) RETURNING *", [description]);
+     
+      //res.json(newTodo.rows[0]);
+      res.json({msg: 'This is CORS-enabled for all origins!'})
+      
+    } catch (err) {
+      console.error(err.message);
+    }
+});
